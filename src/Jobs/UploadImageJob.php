@@ -12,7 +12,7 @@ use Illuminate\Queue\SerializesModels;
 use JustBetter\AkeneoImages\Contracts\UploadsImage;
 use JustBetter\AkeneoImages\Models\Image;
 
-class UploadImageJob implements ShouldQueue, ShouldBeUnique
+class UploadImageJob implements ShouldBeUnique, ShouldQueue
 {
     use Batchable;
     use Dispatchable;

@@ -11,7 +11,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use JustBetter\AkeneoImages\Contracts\ProcessesImage;
 
-class ProcessImageJob implements ShouldQueue, ShouldBeUnique
+class ProcessImageJob implements ShouldBeUnique, ShouldQueue
 {
     use Batchable;
     use Dispatchable;
