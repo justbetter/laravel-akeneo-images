@@ -18,7 +18,7 @@ class ProcessImageJobTest extends TestCase
                 ->shouldReceive('process')
                 ->with('::disk::', '::path::', ['key' => 'value'], false)
                 ->once()
-                ->andReturn(new Image());
+                ->andReturn(new Image);
         });
 
         ProcessImageJob::dispatch('::disk::', '::path::', ['key' => 'value'], false);

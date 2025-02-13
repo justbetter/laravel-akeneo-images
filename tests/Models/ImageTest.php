@@ -14,7 +14,7 @@ class ImageTest extends TestCase
      */
     public function it_can_get_meta(?array $meta, int|string $key, mixed $default, mixed $expected): void
     {
-        $image = new Image();
+        $image = new Image;
         $image->meta = $meta;
 
         $this->assertEquals($expected, $image->meta($key, $default));

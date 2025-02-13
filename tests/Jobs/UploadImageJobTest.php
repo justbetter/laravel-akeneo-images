@@ -23,7 +23,7 @@ class UploadImageJobTest extends TestCase
             $mock
                 ->shouldReceive('upload')
                 ->once()
-                ->andReturn(new Image());
+                ->andReturn(new Image);
         });
 
         UploadImageJob::dispatch($image);
