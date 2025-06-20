@@ -1,9 +1,7 @@
 name: style
 
-on:
-    push:
-        branches:
-            - main
+on: ['push', 'pull_request']
+
 jobs:
     style:
         name: Style
@@ -16,7 +14,7 @@ jobs:
             -   name: Setup PHP
                 uses: shivammathur/setup-php@v2
                 with:
-                    php-version: 8.3
+                    php-version: 8.4
                     extensions: dom, curl, libxml, mbstring, zip, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
                     coverage: none
 
@@ -24,9 +22,4 @@ jobs:
                 run: composer install
 
             -   name: Style
-                run: composer fix-style
-
-            -   name: Commit Changes
-                uses: stefanzweifel/git-auto-commit-action@v4
-                with:
-                    commit_message: Fix styling changes
+                run: composer style
