@@ -11,7 +11,7 @@ use PHPUnit\Framework\Attributes\Test;
 class CleanupImagesTest extends TestCase
 {
     #[Test]
-    public function it_cleans_up_imags(): void
+    public function it_cleans_up_images(): void
     {
 
         Storage::fake('::disk::');
