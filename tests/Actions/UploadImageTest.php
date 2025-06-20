@@ -8,10 +8,11 @@ use JustBetter\AkeneoClient\Client\Akeneo;
 use JustBetter\AkeneoImages\Actions\UploadImage;
 use JustBetter\AkeneoImages\Models\Image;
 use JustBetter\AkeneoImages\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class UploadImageTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_can_upload_images(): void
     {
         Storage::fake('::disk::')->put('::path::', '::content::');

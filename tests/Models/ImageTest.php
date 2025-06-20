@@ -4,17 +4,16 @@ namespace JustBetter\AkeneoImages\Tests\Models;
 
 use JustBetter\AkeneoImages\Models\Image;
 use JustBetter\AkeneoImages\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 
 class ImageTest extends TestCase
 {
-    /**
-     * @test
-     *
-     * @dataProvider meta
-     */
+    #[Test]
+    #[DataProvider('meta')]
     public function it_can_get_meta(?array $meta, int|string $key, mixed $default, mixed $expected): void
     {
-        $image = new Image();
+        $image = new Image;
         $image->meta = $meta;
 
         $this->assertEquals($expected, $image->meta($key, $default));

@@ -3,8 +3,10 @@
 namespace JustBetter\AkeneoImages;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
+use JustBetter\AkeneoImages\Actions\CleanupImages;
 use JustBetter\AkeneoImages\Actions\ProcessImage;
 use JustBetter\AkeneoImages\Actions\UploadImage;
+use JustBetter\AkeneoImages\Commands\CleanupImagesCommand;
 use JustBetter\AkeneoImages\Commands\ProcessImageCommand;
 use JustBetter\AkeneoImages\Commands\UploadImageCommand;
 
@@ -28,6 +30,7 @@ class ServiceProvider extends BaseServiceProvider
     {
         ProcessImage::bind();
         UploadImage::bind();
+        CleanupImages::bind();
 
         return $this;
     }
@@ -55,6 +58,7 @@ class ServiceProvider extends BaseServiceProvider
             $this->commands([
                 ProcessImageCommand::class,
                 UploadImageCommand::class,
+                CleanupImagesCommand::class,
             ]);
         }
 
