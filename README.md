@@ -79,6 +79,14 @@ php artisan akeneo-image:process {disk} {path} {--force}
 php artisan akeneo-image:upload {image-id}
 ```
 
+### Cleanup
+
+You may optionally run the cleanup command to remove images:
+
+```shell
+php artisan akeneo-image:cleanup --days=30
+```
+
 ## Quality
 
 To ensure the quality of this package, run the following command:
