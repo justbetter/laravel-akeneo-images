@@ -11,8 +11,7 @@ class UploadImage implements UploadsImage
 {
     public function __construct(
         protected Akeneo $akeneo
-    ) {
-    }
+    ) {}
 
     public function upload(Image $image): Image
     {

@@ -5,10 +5,11 @@ namespace JustBetter\AkeneoImages\Tests\Commands;
 use Illuminate\Support\Facades\Bus;
 use JustBetter\AkeneoImages\Jobs\ProcessImageJob;
 use JustBetter\AkeneoImages\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ProcessImageCommandTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_can_dispatch_jobs(): void
     {
         Bus::fake();

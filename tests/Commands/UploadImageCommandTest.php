@@ -6,10 +6,11 @@ use Illuminate\Support\Facades\Bus;
 use JustBetter\AkeneoImages\Jobs\UploadImageJob;
 use JustBetter\AkeneoImages\Models\Image;
 use JustBetter\AkeneoImages\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class UploadImageCommandTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_can_dispatch_jobs(): void
     {
         Bus::fake();

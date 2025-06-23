@@ -7,10 +7,11 @@ use JustBetter\AkeneoImages\Jobs\UploadImageJob;
 use JustBetter\AkeneoImages\Models\Image;
 use JustBetter\AkeneoImages\Tests\TestCase;
 use Mockery\MockInterface;
+use PHPUnit\Framework\Attributes\Test;
 
 class UploadImageJobTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_can_upload_images(): void
     {
         /** @var Image $image */
@@ -23,13 +24,13 @@ class UploadImageJobTest extends TestCase
             $mock
                 ->shouldReceive('upload')
                 ->once()
-                ->andReturn(new Image());
+                ->andReturn(new Image);
         });
 
         UploadImageJob::dispatch($image);
     }
 
-    /** @test */
+    #[Test]
     public function it_has_the_correct_tags(): void
     {
         /** @var Image $image */

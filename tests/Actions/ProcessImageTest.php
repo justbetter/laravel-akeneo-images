@@ -8,6 +8,7 @@ use JustBetter\AkeneoImages\Actions\ProcessImage;
 use JustBetter\AkeneoImages\Jobs\UploadImageJob;
 use JustBetter\AkeneoImages\Models\Image;
 use JustBetter\AkeneoImages\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ProcessImageTest extends TestCase
 {
@@ -19,7 +20,7 @@ class ProcessImageTest extends TestCase
         Storage::fake('::disk::')->put('::path::', '::content::');
     }
 
-    /** @test */
+    #[Test]
     public function it_can_dispatch_upload_image_jobs(): void
     {
         /** @var ProcessImage $action */
@@ -32,7 +33,7 @@ class ProcessImageTest extends TestCase
         $this->assertNotNull($image->hash);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_skip_non_modified(): void
     {
         Image::query()->create([
@@ -48,7 +49,7 @@ class ProcessImageTest extends TestCase
         Bus::assertNotDispatched(UploadImageJob::class);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_force_non_modified(): void
     {
         Image::query()->create([
@@ -64,7 +65,7 @@ class ProcessImageTest extends TestCase
         Bus::assertDispatched(UploadImageJob::class, 1);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_skip_non_existing_files(): void
     {
         /** @var ProcessImage $action */
