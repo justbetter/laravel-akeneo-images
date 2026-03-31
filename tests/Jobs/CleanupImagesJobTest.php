@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\AkeneoImages\Tests\Jobs;
 
 use JustBetter\AkeneoImages\Contracts\CleansupImages;
@@ -8,7 +10,7 @@ use JustBetter\AkeneoImages\Tests\TestCase;
 use Mockery\MockInterface;
 use PHPUnit\Framework\Attributes\Test;
 
-class CleanupImagesJobTest extends TestCase
+final class CleanupImagesJobTest extends TestCase
 {
     #[Test]
     public function it_calls_action(): void
@@ -26,7 +28,7 @@ class CleanupImagesJobTest extends TestCase
     #[Test]
     public function it_has_the_correct_tags(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'days:30',
             ],

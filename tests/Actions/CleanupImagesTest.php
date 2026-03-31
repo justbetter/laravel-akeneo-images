@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\AkeneoImages\Tests\Actions;
 
 use Illuminate\Support\Facades\Storage;
@@ -8,7 +10,7 @@ use JustBetter\AkeneoImages\Models\Image;
 use JustBetter\AkeneoImages\Tests\TestCase;
 use PHPUnit\Framework\Attributes\Test;
 
-class CleanupImagesTest extends TestCase
+final class CleanupImagesTest extends TestCase
 {
     #[Test]
     public function it_cleans_up_images(): void

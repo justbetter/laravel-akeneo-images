@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\AkeneoImages;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
@@ -12,6 +14,7 @@ use JustBetter\AkeneoImages\Commands\UploadImageCommand;
 
 class ServiceProvider extends BaseServiceProvider
 {
+    #[\Override]
     public function register(): void
     {
         $this

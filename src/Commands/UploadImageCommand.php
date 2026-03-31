@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\AkeneoImages\Commands;
 
 use Illuminate\Console\Command;
