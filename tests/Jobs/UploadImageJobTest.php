@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\AkeneoImages\Tests\Jobs;
 
 use JustBetter\AkeneoImages\Contracts\UploadsImage;
@@ -9,7 +11,7 @@ use JustBetter\AkeneoImages\Tests\TestCase;
 use Mockery\MockInterface;
 use PHPUnit\Framework\Attributes\Test;
 
-class UploadImageJobTest extends TestCase
+final class UploadImageJobTest extends TestCase
 {
     #[Test]
     public function it_can_upload_images(): void

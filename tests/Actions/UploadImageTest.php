@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\AkeneoImages\Tests\Actions;
 
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use JustBetter\AkeneoClient\Client\Akeneo;
@@ -10,7 +13,7 @@ use JustBetter\AkeneoImages\Models\Image;
 use JustBetter\AkeneoImages\Tests\TestCase;
 use PHPUnit\Framework\Attributes\Test;
 
-class UploadImageTest extends TestCase
+final class UploadImageTest extends TestCase
 {
     #[Test]
     public function it_can_upload_images(): void
@@ -46,6 +49,6 @@ class UploadImageTest extends TestCase
         $action->upload($image);
 
         $this->assertEquals('code', $image->processed_path);
-        $this->assertNotNull($image->processed_at);
+        $this->assertInstanceOf(Carbon::class, $image->processed_at);
     }
 }

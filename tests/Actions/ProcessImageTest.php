@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\AkeneoImages\Tests\Actions;
 
 use Illuminate\Support\Facades\Bus;
@@ -10,7 +12,7 @@ use JustBetter\AkeneoImages\Models\Image;
 use JustBetter\AkeneoImages\Tests\TestCase;
 use PHPUnit\Framework\Attributes\Test;
 
-class ProcessImageTest extends TestCase
+final class ProcessImageTest extends TestCase
 {
     protected function setUp(): void
     {

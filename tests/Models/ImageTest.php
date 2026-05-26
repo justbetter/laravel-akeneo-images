@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\AkeneoImages\Tests\Models;
 
 use JustBetter\AkeneoImages\Models\Image;
@@ -7,7 +9,7 @@ use JustBetter\AkeneoImages\Tests\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 
-class ImageTest extends TestCase
+final class ImageTest extends TestCase
 {
     #[Test]
     #[DataProvider('meta')]
@@ -19,39 +21,37 @@ class ImageTest extends TestCase
         $this->assertEquals($expected, $image->meta($key, $default));
     }
 
-    public static function meta(): array
+    public static function meta(): \Iterator
     {
-        return [
-            'Default usage' => [
-                [
-                    'key' => 'value',
-                ],
-                'key',
-                null,
-                'value',
+        yield 'Default usage' => [
+            [
+                'key' => 'value',
             ],
-            'Non-existent' => [
-                [
-                    'key' => 'value',
-                ],
-                'non-existent',
-                null,
-                null,
+            'key',
+            null,
+            'value',
+        ];
+        yield 'Non-existent' => [
+            [
+                'key' => 'value',
             ],
-            'Different default' => [
-                [
-                    'key' => 'value',
-                ],
-                'non-existent',
-                'default',
-                'default',
+            'non-existent',
+            null,
+            null,
+        ];
+        yield 'Different default' => [
+            [
+                'key' => 'value',
             ],
-            'Without meta' => [
-                null,
-                'key',
-                null,
-                null,
-            ],
+            'non-existent',
+            'default',
+            'default',
+        ];
+        yield 'Without meta' => [
+            null,
+            'key',
+            null,
+            null,
         ];
     }
 }

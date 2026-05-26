@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\AkeneoImages\Tests\Jobs;
 
 use JustBetter\AkeneoImages\Contracts\ProcessesImage;
@@ -9,7 +11,7 @@ use JustBetter\AkeneoImages\Tests\TestCase;
 use Mockery\MockInterface;
 use PHPUnit\Framework\Attributes\Test;
 
-class ProcessImageJobTest extends TestCase
+final class ProcessImageJobTest extends TestCase
 {
     #[Test]
     public function it_can_process_images(): void
